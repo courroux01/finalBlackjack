@@ -79,32 +79,34 @@ public class Card {
         return Objects.hash(value, suit);
     }
     
-    private String getShortString(Suit suit){
-        return switch(suit){
-            case Suit.CLUBS -> "C";
-            case Suit.HEARTS -> "H";
-            case Suit.DIAMONDS -> "D";
-            case Suit.SPADES -> "S";
-        };
-    }
+    private String getShortString(Suit suit) {
+    return switch (suit) {
+        case CLUBS -> "C";
+        case HEARTS -> "H";
+        case DIAMONDS -> "D";
+        case SPADES -> "S";
+    };
+}
+
+private String getShortString(Value value) {
+    return switch (value) {
+        case ACE -> "A";
+        case KING -> "K";
+        case QUEEN -> "Q";
+        case JACK -> "J";
+        case TEN -> "T";
+        case NINE -> "9";
+        case EIGHT -> "8";
+        case SEVEN -> "7";
+        case SIX -> "6";
+        case FIVE -> "5";
+        case FOUR -> "4";
+        case THREE -> "3";
+        case TWO -> "2";
+    };
+}
+
     
-    private String getShortString(Value value){
-        return switch(value){
-            case Value.ACE -> "A";
-            case Value.KING -> "K";
-            case Value.QUEEN -> "Q";
-            case Value.JACK -> "J";
-            case Value.TEN-> "T";
-            case Value.NINE -> "9";
-            case Value.EIGHT -> "8";
-            case Value.SEVEN -> "7";
-            case Value.SIX -> "6";
-            case Value.FIVE -> "5";
-            case Value.FOUR -> "4";
-            case Value.THREE -> "3";
-            case Value.TWO -> "2";
-        };
-    }
     public ArrayList<String> getUpdatedCardStringList(boolean isHidden){
         this.cardStringList = new ArrayList();
         String v = isHidden ? " " : this.getShortString(this.value);
